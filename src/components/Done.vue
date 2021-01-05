@@ -1,12 +1,7 @@
 <template>
   <div class="edit-form">
     <table>
-      <tr>
-        <th>ID</th>
-        <th>コメント</th>
-        <th>状態</th>
-        <th>   </th>
-      </tr>
+      <Table/>
       <tr v-for='(item, key) in done' :key="key">
         <td>{{item.id}}</td>
         <td> {{item.item}}</td>
@@ -20,10 +15,12 @@
 
 <script>
 import Input from '../components/Input.vue'
+import Table from '../components/Table.vue'
 export default {
   name: 'EditForm',
   components: {
-    Input
+    Input,
+    Table
   },
   data: function () {
     return {
