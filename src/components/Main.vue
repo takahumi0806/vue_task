@@ -2,11 +2,11 @@
   <div>
     <table>
       <Table/>
-      <tr v-for='(item, key) in message' :key="key">
+      <tr v-for="(item, key) in message" :key="key">
         <td>{{item.id}}</td>
         <td> {{item.item}}</td>
-        <td><button @click='doStatus(item.id)'>{{item.status}}</button></td>
-        <td><button @click='doDelete(item.id)'>削除</button></td>
+        <td><button @click="doStatus(item.id)">{{item.status}}</button></td>
+        <td><button @click="doDelete(item.id)">削除</button></td>
       </tr>
       </table>
       <Input/>
