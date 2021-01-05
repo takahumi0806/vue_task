@@ -13,17 +13,18 @@
         <td><button @click='doStatus(item.id)'>{{item.status}}</button></td>
         <td><button @click='doDelete(item.id)'>削除</button></td>
       </tr>
-      </table>
-      <h2>新規タスクの追加</h2>
-      <input v-model='task'>
-      <button @click="doAdd(task)">追加</button>
-    
+    </table>
+    <Input/>
   </div>
 </template>
 
 <script>
+import Input from '../components/Input.vue'
 export default {
   name: 'EditForm',
+  components: {
+    Input
+  },
   data: function () {
     return {
       task: ''
@@ -35,10 +36,6 @@ export default {
     },
   },
   methods: {
-    doAdd() {
-      this.$store.dispatch('doAdd', this.task)
-      this.task= '';
-    },
     doStatus(id) {
       this.$store.dispatch('doStatus', id)
     },
