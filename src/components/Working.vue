@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-form">
+  <div>
     <table>
       <Table/>
       <tr v-for='(item, key) in done' :key="key">
@@ -18,7 +18,6 @@
 import Input from '../components/Input.vue'
 import Table from '../components/Table.vue'
 export default {
-  name: 'EditForm',
   components: {
     Input,
     Table
