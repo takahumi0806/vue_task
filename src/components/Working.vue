@@ -2,7 +2,7 @@
   <div>
     <table>
       <Table/>
-      <tr v-for="(item, key) in done" :key="key">
+      <tr v-for="(item, key) in message" :key="key">
         <td>{{item.id}}</td>
         <td> {{item.item}}</td>
         <td><button @click="doStatus(item.id)">{{item.status}}</button></td>
@@ -28,7 +28,7 @@ export default {
     }
   },
   computed: {
-    done() {
+    message() {
       return this.$store.getters.getDone('作業中')
     },
   },
