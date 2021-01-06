@@ -10,9 +10,6 @@ const store = new Vuex.Store({
     message(state) {
       return state.message
     },
-    test(state) {
-      return state.message.status.filter('完了') 
-    },
     getDone: (state) => (status) => {
       return state.message.filter(todo => todo.status === status)
     }
