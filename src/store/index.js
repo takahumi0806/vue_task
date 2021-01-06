@@ -17,7 +17,7 @@ const store = new Vuex.Store({
   mutations: {
     setTask(state, payload) {
       const id = state.message.length 
-      store.state.message.push({id, item: payload.task, status: '作業中'})
+      store.state.message.push({id, item: payload.task, status: '作業中'});
     },
     setStatus(state, payload) {
       if(state.message[payload.id].status === '作業中'){
@@ -41,6 +41,6 @@ const store = new Vuex.Store({
     doStatus({commit},id) {commit('setStatus', { id })},
     doDelete({commit},id) {commit('setDelete', { id })}
   }
-})
+});
 
 export default store
