@@ -7,7 +7,7 @@ const store = new Vuex.Store({
     message:[]
   },
   getters: {
-    message(state) {
+    getMessage(state) {
       return state.message
     },
     getDone: (state) => (status) => {

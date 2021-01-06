@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     message() {
-      return this.$store.getters.message
+      return this.$store.getters.getMessage
     }
   },
   methods: {
