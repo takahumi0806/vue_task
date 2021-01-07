@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <h1>TODOリスト</h1>
-    <div>
+    <header>
+      <h1>TODOリスト</h1>
       <input  type="radio" name="status" checked="checked" @change="toAll">すべて
       <input  type="radio" name="status" @change="toWorking">作業中
       <input  type="radio" name="status" @change="toDone">完了
-    </div>
+    </header>
     <router-view/>
   </div>
 </template>
