@@ -4,34 +4,34 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    message:[]
+    todos:[]
   },
   getters: {
-    getMessage(state) {
-      return state.message
+    getTodos(state) {
+      return state.todos
     },
     getDone: (state) => (status) => {
-      return state.message.filter(todo => todo.status === status)
+      return state.todos.filter(todo => todo.status === status)
     }
   },
   mutations: {
     setTask(state, payload) {
-      const id = state.message.length 
-      store.state.message.push({id, item: payload.task, status: '作業中'});
+      const id = state.todos.length 
+      store.state.todos.push({id, item: payload.task, status: '作業中'});
     },
     setStatus(state, payload) {
-      if(state.message[payload.id].status === '作業中'){
-        state.message[payload.id].status = '完了'
+      if(state.todos[payload.id].status === '作業中'){
+        state.todos[payload.id].status = '完了'
       } else {
-        state.message[payload.id].status = '作業中'
+        state.todos[payload.id].status = '作業中'
       }
     },
     setDelete(state, payload) {
-      state.message.splice(payload.id, 1)
-      state.message.forEach( function( item ) {
-        if( payload.id < item.id ){
-          const number = item.id -1
-          state.message[number].id = number
+      state.todos.splice(payload.id, 1)
+      state.todos.forEach( function( todo ) {
+        if( payload.id <  todo.id ){
+          const number = todo.id -1
+          state.todos[number].id = number
         }
       });
     }
