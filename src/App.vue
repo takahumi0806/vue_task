@@ -8,31 +8,31 @@
     </header>
     <table v-if="this.display=='すべて'">
       <Table/>
-      <tr v-for="(item, key) in all" :key="key">
-        <td>{{item.id}}</td>
-        <td> {{item.item}}</td>
-        <td><button @click="doStatus(item.id)">{{item.status}}</button></td>
-        <td><button @click="doDelete(item.id)">削除</button></td>
+      <tr v-for="(todo, key) in all" :key="key">
+        <td>{{todo.id}}</td>
+        <td> {{todo.todo}}</td>
+        <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
+        <td><button @click="doDelete(todo.id)">削除</button></td>
       </tr>
     </table>
 
     <table v-else-if="this.display=='作業中'">
       <Table/>
-      <tr v-for="(item, key) in working" :key="key">
-        <td>{{item.id}}</td>
-        <td> {{item.item}}</td>
-        <td><button @click="doStatus(item.id)">{{item.status}}</button></td>
-        <td><button @click="doDelete(item.id)">削除</button></td>
+      <tr v-for="(todo, key) in working" :key="key">
+        <td>{{todo.id}}</td>
+        <td> {{todo.todo}}</td>
+        <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
+        <td><button @click="doDelete(todo.id)">削除</button></td>
       </tr>
     </table>
 
     <table v-else-if="this.display=='完了'">
       <Table/>
-      <tr v-for="(item, key) in done" :key="key">
-        <td>{{item.id}}</td>
-        <td> {{item.item}}</td>
-        <td><button @click="doStatus(item.id)">{{item.status}}</button></td>
-        <td><button @click="doDelete(item.id)">削除</button></td>
+      <tr v-for="(todo, key) in done" :key="key">
+        <td>{{todo.id}}</td>
+        <td> {{todo.todo}}</td>
+        <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
+        <td><button @click="doDelete(todo.id)">削除</button></td>
       </tr>
     </table>
     <div>

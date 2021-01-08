@@ -15,9 +15,9 @@ const store = new Vuex.Store({
     }
   },
   mutations: {
-    setTask(state, payload) {
+    setTodo(state, payload) {
       const id = state.todos.length 
-      store.state.todos.push({id, item: payload.task, status: '作業中'});
+      store.state.todos.push({id, todo: payload.todo, status: '作業中'});
     },
     setStatus(state, payload) {
       if(state.todos[payload.id].status === '作業中'){
@@ -26,7 +26,7 @@ const store = new Vuex.Store({
         state.todos[payload.id].status = '作業中'
       }
     },
-    setDelete(state, payload) {
+    setId(state, payload) {
       state.todos.splice(payload.id, 1)
       state.todos.forEach( function( todo ) {
         if( payload.id <  todo.id ){
@@ -37,9 +37,9 @@ const store = new Vuex.Store({
     }
   },
   actions: { 
-    doAdd({commit},task) {commit('setTask', { task })},
+    doAdd({commit},todo) {commit('setTodo', { todo })},
     doStatus({commit},id) {commit('setStatus', { id })},
-    doDelete({commit},id) {commit('setDelete', { id })}
+    doDelete({commit},id) {commit('setId', { id })}
   }
 });
 
