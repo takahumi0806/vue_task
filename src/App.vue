@@ -6,29 +6,14 @@
       <input  type="radio" name="status" value="作業中" v-model='display'>作業中
       <input  type="radio" name="status" value="完了" v-model='display'>完了
     </header>
-    <table v-if="this.display=='すべて'">
-      <Table/>
-      <tr v-for="(todo, key) in all" :key="key">
-        <td>{{todo.id}}</td>
-        <td> {{todo.todo}}</td>
-        <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
-        <td><button @click="doDelete(todo.id)">削除</button></td>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>コメント</th>
+        <th>状態</th>
+        <th>   </th>
       </tr>
-    </table>
-
-    <table v-else-if="this.display=='作業中'">
-      <Table/>
-      <tr v-for="(todo, key) in working" :key="key">
-        <td>{{todo.id}}</td>
-        <td> {{todo.todo}}</td>
-        <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
-        <td><button @click="doDelete(todo.id)">削除</button></td>
-      </tr>
-    </table>
-
-    <table v-else-if="this.display=='完了'">
-      <Table/>
-      <tr v-for="(todo, key) in done" :key="key">
+      <tr v-for="(todo, key) in doSelect(this.display)" :key="key">
         <td>{{todo.id}}</td>
         <td> {{todo.todo}}</td>
         <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
@@ -44,11 +29,7 @@
 </template>
 
 <script>
-import Table from './components/Table.vue'
 export default {
-  components: {
-    Table
-  },
   data: function () {
       return {
         task: '',
@@ -76,7 +57,15 @@ export default {
     },
     doDelete(id) {
       this.$store.dispatch('doDelete', id)
-    }
+    },
+    doSelect: function (status) {
+      if(status==="すべて"){
+        return this.$store.getters.getTodos
+      } else {
+        return this.$store.getters.getDone(status)
+      }
+      
+    },
   }
 }
 </script>
