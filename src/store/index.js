@@ -37,9 +37,9 @@ const store = new Vuex.Store({
     }
   },
   actions: { 
-    doAdd({commit},todo) {commit('setTodo', { todo })},
-    doStatus({commit},id) {commit('setStatus', { id })},
-    doDelete({commit},id) {commit('deleteId', { id })}
+    doAdd({commit},todo) {commit('setTodo', {todo})},
+    doStatus({commit},id) {commit('setStatus', {id})},
+    doDelete({commit},id) {commit('deleteId', {id})}
   }
 });
 
