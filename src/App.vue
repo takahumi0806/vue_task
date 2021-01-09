@@ -31,21 +31,10 @@
 <script>
 export default {
   data: function () {
-      return {
-        task: '',
-        display:'すべて',
-      }
-    },
-  computed: {
-    all() {
-      return this.$store.getters.getTodos
-    },
-    done() {
-      return this.$store.getters.getDone('完了')
-    },
-    working() {
-      return this.$store.getters.getDone('作業中')
-    },
+    return {
+      task: '',
+      display:'すべて',
+    }
   },
   methods: {
     doAdd() {
