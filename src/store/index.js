@@ -26,7 +26,7 @@ const store = new Vuex.Store({
         state.todos[payload.id].status = '作業中'
       }
     },
-    setId(state, payload) {
+    deleteId(state, payload) {
       state.todos.splice(payload.id, 1)
       state.todos.forEach( function( todo ) {
         if( payload.id <  todo.id ){
@@ -39,7 +39,7 @@ const store = new Vuex.Store({
   actions: { 
     doAdd({commit},todo) {commit('setTodo', { todo })},
     doStatus({commit},id) {commit('setStatus', { id })},
-    doDelete({commit},id) {commit('setId', { id })}
+    doDelete({commit},id) {commit('deleteId', { id })}
   }
 });
 
