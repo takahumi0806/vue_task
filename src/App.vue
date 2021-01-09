@@ -2,9 +2,9 @@
   <div id="app">
     <header>
       <h1>TODOリスト</h1>
-      <input  type="radio" name="status" value="すべて" v-model='display'>すべて
-      <input  type="radio" name="status" value="作業中" v-model='display'>作業中
-      <input  type="radio" name="status" value="完了" v-model='display'>完了
+      <input  type="radio" name="status" value="すべて" v-model='select'>すべて
+      <input  type="radio" name="status" value="作業中" v-model='select'>作業中
+      <input  type="radio" name="status" value="完了" v-model='select'>完了
     </header>
     <table>
       <tr>
@@ -13,7 +13,7 @@
         <th>状態</th>
         <th>   </th>
       </tr>
-      <tr v-for="(todo, key) in doSelect(this.display)" :key="key">
+      <tr v-for="(todo, key) in doSelect(this.select)" :key="key">
         <td>{{todo.id}}</td>
         <td> {{todo.todo}}</td>
         <td><button @click="doStatus(todo.id)">{{todo.status}}</button></td>
@@ -33,7 +33,7 @@ export default {
   data: function () {
     return {
       task: '',
-      display:'すべて',
+      select:'すべて',
     }
   },
   methods: {
